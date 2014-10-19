@@ -1,1 +1,1 @@
-highlighter: pygments
+exclude: ['vendor', 'Gemfile', 'Gemfile.lock']
