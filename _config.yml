@@ -1,1 +1,1 @@
-exclude: ['vendor', 'Gemfile', 'Gemfile.lock']
+exclude: ['vendor', 'Gemfile', 'Gemfile.lock', 'material']
