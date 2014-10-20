@@ -1,9 +1,22 @@
 @import (inline) '../vendor/stanley/css/bootstrap.css';
 @import 'main.less';
 
+/***** variables *****/
+@navbar-background-color:     #036465;
+@navbar-border-color:         #013d3f;
+@navbar-a-hover:              #1abc9c;
+
+
 .image img {
     border-radius: 40px;
     -webkit-border-radius: 40px;
     -moz-border-radius: 40px;
 }
 
+#header {
+    background-image: url(../img/fish-bg.jpg);
+}
+
+#header a:hover, a:focus {
+    color: @navbar-a-hover;
+}

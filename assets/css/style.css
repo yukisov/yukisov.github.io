@@ -7313,8 +7313,16 @@ bt {
   font-size: 40px;
   color: #036465;
 }
+/***** variables *****/
 .image img {
   border-radius: 40px;
   -webkit-border-radius: 40px;
   -moz-border-radius: 40px;
+}
+#header {
+  background-image: url(../img/fish-bg.jpg);
+}
+#header a:hover,
+a:focus {
+  color: #1abc9c;
 }
