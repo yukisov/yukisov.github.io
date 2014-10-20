@@ -7,6 +7,9 @@
  * URL: http://blacktie.co
  */
 
+@navbar-background-color:     #036465;
+@navbar-border-color:         #013d3f;
+
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 body {
@@ -48,7 +51,6 @@ p {
 
 /* Links */
 a {
-    /* #1abc9c */
     color: #1abc9c;
     word-wrap: break-word;
 
@@ -96,9 +98,8 @@ a:after {
 }
 
 .navbar-inverse {
-    background-color: #036465;
-    /* 16a085 */
-    border-color: #013d3f;
+    background-color: @navbar-background-color;
+    border-color: @navbar-border-color;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -124,7 +125,7 @@ a:after {
 }
 
 .progress-bar-theme {
-  background-color: #036465;
+  background-color: @navbar-background-color;
 }
 
 
@@ -153,7 +154,7 @@ a:after {
 #footer {
     background-color: #2f2f2f;
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 50px; 
 }
 
 #footer p {
@@ -210,10 +211,10 @@ bt {
 
 /* ================== PORTFOLIO IMAGES HOVER EFFECT ================== */
 /* Effects also are controled by hover.zoom.js */
-.zoom {
-    display:block;
-    position:relative;
-    overflow:hidden;
+.zoom { 
+    display:block; 
+    position:relative; 
+    overflow:hidden; 
     background:transparent url(../img/loader.gif) no-repeat center;
 }
 
@@ -240,12 +241,5 @@ bt {
 
 .glyphicon {
     font-size: 40px;
-    color: #036465;
-}
-
-/* Add by Yuki */
-.image img {
-    border-radius: 40px;
-    -webkit-border-radius: 40px;
-    -moz-border-radius: 40px;
+    color: @navbar-background-color;
 }

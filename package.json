@@ -1,0 +1,26 @@
+{
+  "name": "yukisov.github.io",
+  "version": "0.1.0",
+  "description": "My Web Sites Resources",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/yukisov/yukisov.github.io.git"
+  },
+  "author": "Yuki",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/yukisov/yukisov.github.io/issues"
+  },
+  "homepage": "https://github.com/yukisov/yukisov.github.io",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-less": "^0.11.4",
+    "grunt-contrib-uglify": "^0.6.0",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}
