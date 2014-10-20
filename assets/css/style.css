@@ -7319,6 +7319,10 @@ bt {
   -webkit-border-radius: 40px;
   -moz-border-radius: 40px;
 }
+.navbar-inverse {
+  padding-bottom: 100px;
+  padding-top: 100px;
+}
 #header {
   background-image: url(../img/fish-bg.jpg);
 }
@@ -7330,8 +7334,12 @@ a:focus {
   padding-top: 30px;
   padding-bottom: 20px;
 }
+.footer-below {
+  color: #9b9b9b;
+  font-size: 0.9em;
+}
 @media screen and (min-height: 800px) {
   .pt {
-    min-height: 500px;
+    min-height: 420px;
   }
 }
