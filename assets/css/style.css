@@ -7326,3 +7326,8 @@ bt {
 a:focus {
   color: #1abc9c;
 }
+@media screen and (min-height: 800px) {
+  .pt {
+    min-height: 450px;
+  }
+}
