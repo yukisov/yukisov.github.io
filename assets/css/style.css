@@ -7326,8 +7326,12 @@ bt {
 a:focus {
   color: #1abc9c;
 }
+#footer {
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
 @media screen and (min-height: 800px) {
   .pt {
-    min-height: 450px;
+    min-height: 500px;
   }
 }
