@@ -6723,8 +6723,8 @@ button.close {
 @navbar-border-color:         #013d3f;
 @navbar-a-hover:              #1abc9c;*/
 body {
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 .image img {
   width: 50px;
