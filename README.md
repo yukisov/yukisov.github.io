@@ -9,3 +9,24 @@ How to Update articles
     - Build files
     - Run Web Server on local
 
+jekyll コマンド
+----
+
+ウェブサーバ起動
+
+```
+jekyll --server
+```
+
+ウェブサーバ起動（自動ビルドつき）
+
+```
+jekyll serve --watch
+```
+
+各HTML(or Markdown)ファイルを_siteフォルダに反映させる
+
+```
+jekyll build
+```
+
