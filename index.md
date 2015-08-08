@@ -19,6 +19,7 @@ Yuki.S
 - [クローラ耐性診断ツール - web-sindan-crawler](https://github.com/yukisov/web-sindan-crawler)
 - [選挙：出口調査から得票率の信頼区間を算出する](http://misc.pupha.net/confidence_interval.html)
 - [JavaScriptを使った太陽・地球・月の簡単なシミュレーション](http://misc.pupha.net/sun_earth_moon/)
+- [テストの得点と偏差値の関係を視覚的に理解する](http://misc.pupha.net/deviation_simulation/)
 
 書いたもの
 ----
