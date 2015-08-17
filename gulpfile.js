@@ -62,16 +62,19 @@ gulp.task('cssbuild', function() {
 
 gulp.task('jsbuild', function() {
 
-  gulp.src(paths.assets.js + 'app.js')
-    .pipe(jshint())
-    .pipe(concat('app.js'))
-    .pipe(gulp.dest(paths.js))
-    // minify
-    .pipe(rename('app.min.js'))
-    // 'some': Preserve comments that start with a bang (!) or include a Closure Compiler directive (@preserve, @license, @cc_on)
-    .pipe(uglify({preserveComments:'some'}))
-    .pipe(gulp.dest(paths.js))
-  ;
+  ['common', 'app'].forEach(function(name) {
+    gulp.src(paths.assets.js + name + '.js')
+      .pipe(jshint())
+      .pipe(concat(name + '.js'))
+      .pipe(gulp.dest(paths.js))
+      // minify
+      .pipe(rename(name + '.min.js'))
+      // 'some': Preserve comments that start with a bang (!) or include a Closure Compiler directive (@preserve, @license, @cc_on)
+      .pipe(uglify({preserveComments:'some'}))
+      .pipe(gulp.dest(paths.js))
+    ;
+  });
+
 });
 
 // --------
