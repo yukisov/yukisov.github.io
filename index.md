@@ -9,7 +9,7 @@ Yuki.S
 
 <div id="page-ja" class="index" data-lang="jp" markdown="1">
 
-About
+About me
 ----
 
 - Webアプリケーションエンジニア
@@ -60,7 +60,7 @@ Location
 
 <div id="page-en" class="index" markdown="1">
 
-About
+About me
 ----
 
 - Web Application Engineer
