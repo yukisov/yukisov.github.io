@@ -33,6 +33,10 @@ About me
 
 - [OWASP ZAP について書いた記事](http://www.pupha.net/owasp-zap/)
 - [OWASP BWA について書いた記事](http://www.pupha.net/owasp-bwa/)
+- [Secure Code Tips](http://code4sec.com) に書いたもの
+   - [PHPのセキュリティ対策](http://code4sec.com/yukisov/item/8aCjqsTvj7eYaQElWre4)
+   - [Laravel 5 でのセキュリティ対策 (PHP)](http://code4sec.com/yukisov/item/DLXD7iGgNYMBuNsSbVyg)
+   - [JavaScript (とHTML5)のセキュリティ対策](http://code4sec.com/yukisov/item/2ITFUFjeaGNb4aUGloMk)
 
 
 ブログ
