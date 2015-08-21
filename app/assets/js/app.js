@@ -1,56 +1,12 @@
-(function(global) {
-  "use strict";
+var page = require('page');
 
-  global.app = global.app || {};
+page('/ex001.html', require('./ex001'));
+page('/', require('./index'));
 
-  global.app.lang = (function(global) {
+page({
+  click: false,
+  popstate: false,
+  dispatch: true,
+  hashbang: false
+});
 
-    /**
-     *
-     */
-    var selectPageByLang = function() {
-
-      var params = global.app.utils.getUrlParams(location.search.substring(1)),
-          lang, is_lang_ja;
-
-      if ('lang' in params && params.lang !== '') {
-        is_lang_ja = global.app.utils.isLangJa(params.lang);
-      } else {
-        is_lang_ja = global.app.utils.isLangJa();
-      }
-
-      if (is_lang_ja) {
-        $('#page-ja').show();
-        $('#page-en').hide();
-      } else {
-        $('#page-ja').hide();
-        $('#page-en').show();
-      }
-    };
-
-    /**
-     *
-     */
-    var init = function() {
-
-      selectPageByLang();
-
-    };
-
-    return {
-      init: init
-    };
-
-  })(global);
-
-
-  //------------
-  // Main
-  //------------
-  $(function(){
-
-    global.app.lang.init();
-
-  });
-
-})((typeof window === 'object' && window) || global);

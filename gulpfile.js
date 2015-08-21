@@ -11,6 +11,8 @@ var gulp = require('gulp')
 // Others
   // Comparing the last time modifying  source file and destination file
   , changed = require('gulp-changed')
+  , webpack = require('webpack-stream')
+  , webpackConf = require('./webpack.config.js')
   , notify = require('gulp-notify')
   , watch = require('gulp-watch')
   , mocha = require('gulp-mocha')
@@ -62,18 +64,19 @@ gulp.task('cssbuild', function() {
 
 gulp.task('jsbuild', function() {
 
-  ['common', 'app'].forEach(function(name) {
-    gulp.src(paths.assets.js + name + '.js')
-      .pipe(jshint())
-      .pipe(concat(name + '.js'))
-      .pipe(gulp.dest(paths.js))
-      // minify
-      .pipe(rename(name + '.min.js'))
-      // 'some': Preserve comments that start with a bang (!) or include a Closure Compiler directive (@preserve, @license, @cc_on)
-      .pipe(uglify({preserveComments:'some'}))
-      .pipe(gulp.dest(paths.js))
-    ;
-  });
+  gulp.src(paths.assets.js + 'app.js')
+    .pipe(jshint())
+    .pipe(webpack(webpackConf))
+    //.pipe(addsrc.prepend([
+    //  paths.assets.vendor + 'pace/pace.min.js'
+    //]))
+    .pipe(concat('app.js'))
+    .pipe(gulp.dest(paths.js))
+    // minify
+    .pipe(rename('app.min.js'))
+    // 'some': Preserve comments that start with a bang (!) or include a Closure Compiler directive (@preserve, @license, @cc_on)
+    .pipe(uglify({preserveComments:'some'}))
+    .pipe(gulp.dest(paths.js))
 
 });
 
