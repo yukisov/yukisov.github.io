@@ -2094,7 +2094,6 @@
 	var isLangJa = function(lang) {
 	  if (typeof lang === 'undefined') {
 	    lang = window.navigator.userLanguage || window.navigator.language || window.navigator.browserLanguage;
-	    console.log('lang 1 =', lang);
 	  }
 	  if (typeof lang === 'undefined') {
 	    return true;
