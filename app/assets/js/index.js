@@ -1,9 +1,10 @@
-var langModule = require('./lang');
+import langModule from './lang';
 
-module.exports = function() {
+export default function() {
+  "use strict";
 
-  $(function(){
-    langModule.init();
+  $(() => {
+    langModule();
   });
 
-};
+}

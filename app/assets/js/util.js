@@ -1,32 +1,31 @@
-
 /**
  * @returns {Promise}
  */
-var waitOnload = function() {
+export function waitOnload() {
   return new Promise(function(resolve/*, reject*/) {
     $(function() {
       resolve(true);
     });
   });
-};
+}
 
 /**
  * RFC3986 に従ったエンコーディングを行う
  * @param {string} str
  * @returns {string}
  */
-var fixedEncodeURIComponent = function(str) {
+export function fixedEncodeURIComponent(str) {
   return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
     return '%' + c.charCodeAt(0).toString(16);
   });
-};
+}
 
 /**
  * 数字を3桁区切りの文字列にして返す
  * @param {number} num
  * @returns {string}
  */
-var addDigitGroupingSeparator = function(num) {
+export function addDigitGroupingSeparator(num) {
 
   var doForInteger = function(num1) {
     return num1.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
@@ -40,7 +39,7 @@ var addDigitGroupingSeparator = function(num) {
     default:
       return doForInteger(parseInt(arr[0])) + '.' + arr[1];
   }
-};
+}
 
 /**
  * 2つの数値を足し算する
@@ -49,7 +48,7 @@ var addDigitGroupingSeparator = function(num) {
  * @param {number} b
  * @returns {number}
  */
-var add = function(a, b) {
+export function add(a, b) {
 
   // The function to get the length after the decimal point
   var getLengthOfDecimal = function(num) {
@@ -78,14 +77,14 @@ var add = function(a, b) {
   b_new = Math.round(b * Math.pow(10, len_dec));
 
   return (a_new + b_new) / Math.pow(10, len_dec);
-};
+}
 
 /**
  *
  * @param {string} query_string - e.g. 'name=foo&hobby=guitar'
  * @return {Object}
  */
-var getUrlParams = function(query_string) {
+export function getUrlParams(query_string) {
 
   var params = {};
 
@@ -99,7 +98,7 @@ var getUrlParams = function(query_string) {
     params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
   });
   return params;
-};
+}
 
 /**
  * 3つの数値を掛け算する
@@ -111,7 +110,7 @@ var getUrlParams = function(query_string) {
  * @param {number} c
  * @returns {number}
  */
-var multiply = function(a, b, c) {
+export function multiply(a, b, c) {
 
   // The function to get the length after the decimal point
   var getLengthOfDecimal = function(num) {
@@ -153,14 +152,14 @@ var multiply = function(a, b, c) {
   }
 
   return d;
-};
+}
 
 /**
  * 配列かどうかを返す。
  * @param something
  * @returns {boolean}
  */
-var isArray = function (something) {
+export function isArray(something) {
 
   // ----- polyfil する場合 -----
   // if(!Array.isArray) {
@@ -172,13 +171,13 @@ var isArray = function (something) {
 
   return Object.prototype.toString.call(something) === '[object Array]';
 
-};
+}
 
 /**
  * クライアントが日本語かどうかを返す。
  * @returns {boolean}
  */
-var isLangJa = function(lang) {
+export function isLangJa(lang) {
   if (typeof lang === 'undefined') {
     lang = window.navigator.userLanguage || window.navigator.language || window.navigator.browserLanguage;
   }
@@ -186,17 +185,4 @@ var isLangJa = function(lang) {
     return true;
   }
   return lang.substr(0, 2) === 'ja';
-};
-
-
-module.exports = {
-  waitOnload: waitOnload,
-  fixedEncodeURIComponent: fixedEncodeURIComponent,
-  addDigitGroupingSeparator: addDigitGroupingSeparator,
-  add: add,
-  getUrlParams: getUrlParams,
-  multiply: multiply,
-  isArray: isArray,
-  isLangJa: isLangJa
-};
-
+}

@@ -1,19 +1,19 @@
-var nasaModule = require('./nasa');
+import * as nasaModule from './nasa';
 
 /**
  *
  */
-var getAndSetBackgroundImage = function() {
+function getAndSetBackgroundImage() {
 
   Promise.resolve()
-    .then(function() {
+    .then(() => {
       var elm = $('#earth__image');
       elm.html('<i class="fa fa-refresh fa-spin fa-3x"></i>');
     })
-    .then(function() {
+    .then(() => {
       return nasaModule.getApodData($('#lat').val(), $('#lon').val());
     })
-    .then(function(data){
+    .then((data) => {
       var elmImage = $('#earth__image'),
           imgElm = document.createElement("img"),
           elmDate = $('#earth__date'),
@@ -24,7 +24,7 @@ var getAndSetBackgroundImage = function() {
       elmDate.html("撮影日付：" + data.date);
       elmCloudScore.html("雲の占有率：" + data.cloud_score);
     })
-    .catch(function(error) {
+    .catch((error) => {
       $('#earth__image').empty().html(error.message);
       $('#earth__date').empty();
       $('#earth__cloud_score').empty();
@@ -34,17 +34,16 @@ var getAndSetBackgroundImage = function() {
       }
     })
   ;
+}
 
-};
+export default function() {
 
-module.exports = function() {
+  $(() => {
 
-  $(function() {
-
-    $('#btn-get-image').on('click', function() {
+    $('#btn-get-image').on('click', () => {
       getAndSetBackgroundImage();
     });
 
   });
 
-};
+}

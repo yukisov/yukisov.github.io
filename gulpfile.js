@@ -5,7 +5,7 @@ var gulp = require('gulp')
   , autoprefixer = require('gulp-pleeease')
   , minifyCss = require('gulp-minify-css')
 // JavaScript
-  , jshint = require('gulp-jshint')
+  , eslint = require('gulp-eslint')
   , concat = require('gulp-concat')
   , uglify = require('gulp-uglify')
 // Others
@@ -65,7 +65,7 @@ gulp.task('cssbuild', function() {
 gulp.task('jsbuild', function() {
 
   gulp.src(paths.assets.js + 'app.js')
-    .pipe(jshint())
+    .pipe(eslint())
     .pipe(webpack(webpackConf))
     //.pipe(addsrc.prepend([
     //  paths.assets.vendor + 'pace/pace.min.js'

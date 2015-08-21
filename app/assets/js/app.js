@@ -1,7 +1,9 @@
-var page = require('page');
+import page from 'page';
+import indexModule from './index';
+import ex001Module from './ex001';
 
-page('/ex001.html', require('./ex001'));
-page('/', require('./index'));
+page('/ex001.html', ex001Module);
+page('/', indexModule);
 
 page({
   click: false,

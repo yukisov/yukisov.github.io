@@ -1,11 +1,11 @@
-var utilModule = require('./util');
+import * as utilModule from './util';
 
 /**
  *
  */
-var selectPageByLang = function() {
+function selectPageByLang() {
 
-  var params = utilModule.getUrlParams(location.search.substring(1)),
+  let params = utilModule.getUrlParams(location.search.substring(1)),
       lang, is_lang_ja;
 
   if ('lang' in params && params.lang !== '') {
@@ -21,19 +21,13 @@ var selectPageByLang = function() {
     $('#page-ja').hide();
     $('#page-en').show();
   }
-};
+}
 
 /**
  *
  */
-var init = function() {
+export default function() {
 
   selectPageByLang();
 
-};
-
-module.exports = {
-  init: init
-};
-
-
+}

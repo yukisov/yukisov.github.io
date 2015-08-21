@@ -1,12 +1,13 @@
-var Promise = require('promise');
-var API_KEY = 'JGLSPSKTo83V3c0y2Rd0EpJuqnp0seLnQkwNekyC';
+import Promise from 'promise';
+
+const API_KEY = 'JGLSPSKTo83V3c0y2Rd0EpJuqnp0seLnQkwNekyC';
 
 /**
  * Get APOD (Astronomy Picture of the Day) data
  *
  * @return {Promise}
  */
-var getApodData = function(lat, lon) {
+export function getApodData(lat, lon) {
 
   return new Promise (function(resolve, reject) {
 
@@ -40,9 +41,4 @@ var getApodData = function(lat, lon) {
     ;
   });
 
-};
-
-module.exports = {
-  getApodData: getApodData
-};
-
+}

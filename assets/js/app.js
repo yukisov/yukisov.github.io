@@ -44,19 +44,31 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var page = __webpack_require__(1);
+	'use strict';
 
-	page('/ex001.html', __webpack_require__(5));
-	page('/', __webpack_require__(16));
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	page({
+	var _page = __webpack_require__(1);
+
+	var _page2 = _interopRequireDefault(_page);
+
+	var _index = __webpack_require__(5);
+
+	var _index2 = _interopRequireDefault(_index);
+
+	var _ex001 = __webpack_require__(8);
+
+	var _ex0012 = _interopRequireDefault(_ex001);
+
+	(0, _page2['default'])('/ex001.html', _ex0012['default']);
+	(0, _page2['default'])('/', _index2['default']);
+
+	(0, _page2['default'])({
 	  click: false,
 	  popstate: false,
 	  dispatch: true,
 	  hashbang: false
 	});
-
-
 
 /***/ },
 /* 1 */
@@ -1001,119 +1013,291 @@
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nasaModule = __webpack_require__(6);
+	"use strict";
 
-	/**
-	 *
-	 */
-	var getAndSetBackgroundImage = function() {
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 
-	  Promise.resolve()
-	    .then(function() {
-	      var elm = $('#earth__image');
-	      elm.html('<i class="fa fa-refresh fa-spin fa-3x"></i>');
-	    })
-	    .then(function() {
-	      return nasaModule.getApodData($('#lat').val(), $('#lon').val());
-	    })
-	    .then(function(data){
-	      var elmImage = $('#earth__image'),
-	          imgElm = document.createElement("img"),
-	          elmDate = $('#earth__date'),
-	          elmCloudScore = $('#earth__cloud_score');
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-	      imgElm.src = data.url;
-	      elmImage.empty().append(imgElm);
-	      elmDate.html("撮影日付：" + data.date);
-	      elmCloudScore.html("雲の占有率：" + data.cloud_score);
-	    })
-	    .catch(function(error) {
-	      $('#earth__image').empty().html(error.message);
-	      $('#earth__date').empty();
-	      $('#earth__cloud_score').empty();
+	var _lang = __webpack_require__(6);
 
-	      if (typeof console !== 'object') {
-	        console.error(error.message);
-	      }
-	    })
-	  ;
+	var _lang2 = _interopRequireDefault(_lang);
 
-	};
+	exports["default"] = function () {
+	  "use strict";
 
-	module.exports = function() {
-
-	  $(function() {
-
-	    $('#btn-get-image').on('click', function() {
-	      getAndSetBackgroundImage();
-	    });
-
+	  $(function () {
+	    (0, _lang2["default"])();
 	  });
-
 	};
+
+	module.exports = exports["default"];
 
 /***/ },
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Promise = __webpack_require__(7);
-	var API_KEY = 'JGLSPSKTo83V3c0y2Rd0EpJuqnp0seLnQkwNekyC';
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+
+	var _util = __webpack_require__(7);
+
+	var utilModule = _interopRequireWildcard(_util);
 
 	/**
-	 * Get APOD (Astronomy Picture of the Day) data
 	 *
-	 * @return {Promise}
 	 */
-	var getApodData = function(lat, lon) {
+	function selectPageByLang() {
 
-	  return new Promise (function(resolve, reject) {
+	  var params = utilModule.getUrlParams(location.search.substring(1)),
+	      lang = undefined,
+	      is_lang_ja = undefined;
 
-	    if (isNaN(lat) || isNaN(lon)) {
-	      reject(new Error('Params type error'));
-	      return;
-	    }
+	  if ('lang' in params && params.lang !== '') {
+	    is_lang_ja = utilModule.isLangJa(params.lang);
+	  } else {
+	    is_lang_ja = utilModule.isLangJa();
+	  }
 
-	    var url = 'https://api.nasa.gov/planetary/earth/imagery?lat=' + lat + '&lon=' + lon +
-	              '&cloud_score=True&api_key=' + API_KEY;
+	  if (is_lang_ja) {
+	    $('#page-ja').show();
+	    $('#page-en').hide();
+	  } else {
+	    $('#page-ja').hide();
+	    $('#page-en').show();
+	  }
+	}
 
-	    $.ajax({
-	      url: url
-	    })
-	      .done(function(data, textStatus, jqXHR) {
-	        if (typeof console === 'object') console.info(data);
+	/**
+	 *
+	 */
 
-	        // data:
-	        //   response example: https://api.nasa.gov/planetary/apod?concept_tags=True&api_key=DEMO_KEY
-	        // textStatus:
-	        //   'success'
+	exports['default'] = function () {
 
-	        resolve(data);
-
-	      })
-	      .fail(function(jqXHR, textStatus, errorThrown) {
-
-	        reject(new Error('Ajax Error'));
-
-	      })
-	    ;
-	  });
-
+	  selectPageByLang();
 	};
 
-	module.exports = {
-	  getApodData: getApodData
-	};
-
-
+	module.exports = exports['default'];
 
 /***/ },
 /* 7 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
+	/**
+	 * @returns {Promise}
+	 */
 	'use strict';
 
-	module.exports = __webpack_require__(8)
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	exports.waitOnload = waitOnload;
+	exports.fixedEncodeURIComponent = fixedEncodeURIComponent;
+	exports.addDigitGroupingSeparator = addDigitGroupingSeparator;
+	exports.add = add;
+	exports.getUrlParams = getUrlParams;
+	exports.multiply = multiply;
+	exports.isArray = isArray;
+	exports.isLangJa = isLangJa;
 
+	function waitOnload() {
+	  return new Promise(function (resolve /*, reject*/) {
+	    $(function () {
+	      resolve(true);
+	    });
+	  });
+	}
+
+	/**
+	 * RFC3986 に従ったエンコーディングを行う
+	 * @param {string} str
+	 * @returns {string}
+	 */
+
+	function fixedEncodeURIComponent(str) {
+	  return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
+	    return '%' + c.charCodeAt(0).toString(16);
+	  });
+	}
+
+	/**
+	 * 数字を3桁区切りの文字列にして返す
+	 * @param {number} num
+	 * @returns {string}
+	 */
+
+	function addDigitGroupingSeparator(num) {
+
+	  var doForInteger = function doForInteger(num1) {
+	    return num1.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+	  };
+
+	  var arr = num.toString().split('.');
+	  switch (arr.length) {
+	    case 0:
+	    case 1:
+	      return doForInteger(num);
+	    default:
+	      return doForInteger(parseInt(arr[0])) + '.' + arr[1];
+	  }
+	}
+
+	/**
+	 * 2つの数値を足し算する
+	 *
+	 * @param {number} a
+	 * @param {number} b
+	 * @returns {number}
+	 */
+
+	function add(a, b) {
+
+	  // The function to get the length after the decimal point
+	  var getLengthOfDecimal = function getLengthOfDecimal(num) {
+	    var str = num + '';
+	    var len = str.length;
+	    var pos = str.lastIndexOf('.');
+	    if (pos === -1) {
+	      return 0;
+	    } else {
+	      return len - (pos + 1);
+	    }
+	  };
+
+	  // 小数点以下桁数が大きい方に合わせて桁を増やす.
+	  var len_dec_a = getLengthOfDecimal(a);
+	  var len_dec_b = getLengthOfDecimal(b);
+	  var a_new, b_new, len_dec;
+	  if (len_dec_a > len_dec_b) {
+	    len_dec = len_dec_a;
+	  } else {
+	    len_dec = len_dec_b;
+	  }
+
+	  // どちらも必ず整数になるはず
+	  a_new = Math.round(a * Math.pow(10, len_dec));
+	  b_new = Math.round(b * Math.pow(10, len_dec));
+
+	  return (a_new + b_new) / Math.pow(10, len_dec);
+	}
+
+	/**
+	 *
+	 * @param {string} query_string - e.g. 'name=foo&hobby=guitar'
+	 * @return {Object}
+	 */
+
+	function getUrlParams(query_string) {
+
+	  var params = {};
+
+	  if (typeof query_string === 'undefined') {
+	    return {};
+	  }
+
+	  query_string.split('&').forEach(function (s) {
+	    var pair = s.split('=');
+	    if (typeof pair[1] === 'undefined') return;
+	    params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+	  });
+	  return params;
+	}
+
+	/**
+	 * 3つの数値を掛け算する
+	 *
+	 * - 小数点以下0桁とする（切り捨て）.
+	 *
+	 * @param {number} a
+	 * @param {number} b
+	 * @param {number} c
+	 * @returns {number}
+	 */
+
+	function multiply(a, b, c) {
+
+	  // The function to get the length after the decimal point
+	  var getLengthOfDecimal = function getLengthOfDecimal(num) {
+	    var str = num + '';
+	    var len = str.length;
+	    var pos = str.lastIndexOf('.');
+	    if (pos === -1) {
+	      return 0;
+	    } else {
+	      return len - (pos + 1);
+	    }
+	  };
+
+	  // Make the 'a' variable integer if it's decimal
+	  var len_dec_a = getLengthOfDecimal(a);
+	  var a_new = a;
+	  if (len_dec_a > 0) {
+	    a_new = a * Math.pow(10, len_dec_a);
+	  }
+
+	  // Make the 'b' variable integer if it's decimal
+	  var len_dec_b = getLengthOfDecimal(b);
+	  var b_new = b;
+	  if (len_dec_b > 0) {
+	    b_new = b * Math.pow(10, len_dec_b);
+	  }
+
+	  // Make the 'c' variable integer if it's decimal
+	  var len_dec_c = getLengthOfDecimal(c);
+	  var c_new = c;
+	  if (len_dec_c > 0) {
+	    c_new = c * Math.pow(10, len_dec_c);
+	  }
+
+	  var d = a_new * b_new * c_new;
+
+	  if (len_dec_a > 0 || len_dec_b > 0 || len_dec_c > 0) {
+	    d = Math.floor(d / Math.pow(10, len_dec_a + len_dec_b + len_dec_c));
+	  }
+
+	  return d;
+	}
+
+	/**
+	 * 配列かどうかを返す。
+	 * @param something
+	 * @returns {boolean}
+	 */
+
+	function isArray(something) {
+
+	  // ----- polyfil する場合 -----
+	  // if(!Array.isArray) {
+	  //   Array.isArray = function (vArg) {
+	  //     return Object.prototype.toString.call(vArg) === "[object Array]";
+	  //   };
+	  // }
+	  // ---------------------------
+
+	  return Object.prototype.toString.call(something) === '[object Array]';
+	}
+
+	/**
+	 * クライアントが日本語かどうかを返す。
+	 * @returns {boolean}
+	 */
+
+	function isLangJa(lang) {
+	  if (typeof lang === 'undefined') {
+	    lang = window.navigator.userLanguage || window.navigator.language || window.navigator.browserLanguage;
+	  }
+	  if (typeof lang === 'undefined') {
+	    return true;
+	  }
+	  return lang.substr(0, 2) === 'ja';
+	}
 
 /***/ },
 /* 8 */
@@ -1121,12 +1305,58 @@
 
 	'use strict';
 
-	module.exports = __webpack_require__(9);
-	__webpack_require__(11);
-	__webpack_require__(12);
-	__webpack_require__(13);
-	__webpack_require__(14);
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
 
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+
+	var _nasa = __webpack_require__(9);
+
+	var nasaModule = _interopRequireWildcard(_nasa);
+
+	/**
+	 *
+	 */
+	function getAndSetBackgroundImage() {
+
+	  Promise.resolve().then(function () {
+	    var elm = $('#earth__image');
+	    elm.html('<i class="fa fa-refresh fa-spin fa-3x"></i>');
+	  }).then(function () {
+	    return nasaModule.getApodData($('#lat').val(), $('#lon').val());
+	  }).then(function (data) {
+	    var elmImage = $('#earth__image'),
+	        imgElm = document.createElement("img"),
+	        elmDate = $('#earth__date'),
+	        elmCloudScore = $('#earth__cloud_score');
+
+	    imgElm.src = data.url;
+	    elmImage.empty().append(imgElm);
+	    elmDate.html("撮影日付：" + data.date);
+	    elmCloudScore.html("雲の占有率：" + data.cloud_score);
+	  })['catch'](function (error) {
+	    $('#earth__image').empty().html(error.message);
+	    $('#earth__date').empty();
+	    $('#earth__cloud_score').empty();
+
+	    if (typeof console !== 'object') {
+	      console.error(error.message);
+	    }
+	  });
+	}
+
+	exports['default'] = function () {
+
+	  $(function () {
+
+	    $('#btn-get-image').on('click', function () {
+	      getAndSetBackgroundImage();
+	    });
+	  });
+	};
+
+	module.exports = exports['default'];
 
 /***/ },
 /* 9 */
@@ -1134,7 +1364,83 @@
 
 	'use strict';
 
-	var asap = __webpack_require__(10);
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	exports.getApodData = getApodData;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _promise = __webpack_require__(10);
+
+	var _promise2 = _interopRequireDefault(_promise);
+
+	var API_KEY = 'JGLSPSKTo83V3c0y2Rd0EpJuqnp0seLnQkwNekyC';
+
+	/**
+	 * Get APOD (Astronomy Picture of the Day) data
+	 *
+	 * @return {Promise}
+	 */
+
+	function getApodData(lat, lon) {
+
+	  return new _promise2['default'](function (resolve, reject) {
+
+	    if (isNaN(lat) || isNaN(lon)) {
+	      reject(new Error('Params type error'));
+	      return;
+	    }
+
+	    var url = 'https://api.nasa.gov/planetary/earth/imagery?lat=' + lat + '&lon=' + lon + '&cloud_score=True&api_key=' + API_KEY;
+
+	    $.ajax({
+	      url: url
+	    }).done(function (data, textStatus, jqXHR) {
+	      if (typeof console === 'object') console.info(data);
+
+	      // data:
+	      //   response example: https://api.nasa.gov/planetary/apod?concept_tags=True&api_key=DEMO_KEY
+	      // textStatus:
+	      //   'success'
+
+	      resolve(data);
+	    }).fail(function (jqXHR, textStatus, errorThrown) {
+
+	      reject(new Error('Ajax Error'));
+	    });
+	  });
+	}
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = __webpack_require__(11)
+
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = __webpack_require__(12);
+	__webpack_require__(14);
+	__webpack_require__(15);
+	__webpack_require__(16);
+	__webpack_require__(17);
+
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var asap = __webpack_require__(13);
 
 	function noop() {}
 
@@ -1319,7 +1625,7 @@
 
 
 /***/ },
-/* 10 */
+/* 13 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {"use strict";
@@ -1546,12 +1852,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 11 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Promise = __webpack_require__(9);
+	var Promise = __webpack_require__(12);
 
 	module.exports = Promise;
 	Promise.prototype.done = function (onFulfilled, onRejected) {
@@ -1565,12 +1871,12 @@
 
 
 /***/ },
-/* 12 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Promise = __webpack_require__(9);
+	var Promise = __webpack_require__(12);
 
 	module.exports = Promise;
 	Promise.prototype['finally'] = function (f) {
@@ -1587,14 +1893,14 @@
 
 
 /***/ },
-/* 13 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	//This file contains the ES6 extensions to the core Promises/A+ API
 
-	var Promise = __webpack_require__(9);
+	var Promise = __webpack_require__(12);
 
 	module.exports = Promise;
 
@@ -1700,7 +2006,7 @@
 
 
 /***/ },
-/* 14 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1708,8 +2014,8 @@
 	// This file contains then/promise specific extensions that are only useful
 	// for node.js interop
 
-	var Promise = __webpack_require__(9);
-	var asap = __webpack_require__(15);
+	var Promise = __webpack_require__(12);
+	var asap = __webpack_require__(18);
 
 	module.exports = Promise;
 
@@ -1777,13 +2083,13 @@
 
 
 /***/ },
-/* 15 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
 	// rawAsap provides everything we need except exception management.
-	var rawAsap = __webpack_require__(10);
+	var rawAsap = __webpack_require__(13);
 	// RawTasks are recycled to reduce GC churn.
 	var freeTasks = [];
 	// We queue errors to ensure they are thrown in right order (FIFO).
@@ -1846,273 +2152,6 @@
 	        freeTasks[freeTasks.length] = this;
 	    }
 	};
-
-
-/***/ },
-/* 16 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var langModule = __webpack_require__(17);
-
-	module.exports = function() {
-
-	  $(function(){
-	    langModule.init();
-	  });
-
-	};
-
-/***/ },
-/* 17 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var utilModule = __webpack_require__(18);
-
-	/**
-	 *
-	 */
-	var selectPageByLang = function() {
-
-	  var params = utilModule.getUrlParams(location.search.substring(1)),
-	      lang, is_lang_ja;
-
-	  if ('lang' in params && params.lang !== '') {
-	    is_lang_ja = utilModule.isLangJa(params.lang);
-	  } else {
-	    is_lang_ja = utilModule.isLangJa();
-	  }
-
-	  if (is_lang_ja) {
-	    $('#page-ja').show();
-	    $('#page-en').hide();
-	  } else {
-	    $('#page-ja').hide();
-	    $('#page-en').show();
-	  }
-	};
-
-	/**
-	 *
-	 */
-	var init = function() {
-
-	  selectPageByLang();
-
-	};
-
-	module.exports = {
-	  init: init
-	};
-
-
-
-
-/***/ },
-/* 18 */
-/***/ function(module, exports) {
-
-	
-	/**
-	 * @returns {Promise}
-	 */
-	var waitOnload = function() {
-	  return new Promise(function(resolve/*, reject*/) {
-	    $(function() {
-	      resolve(true);
-	    });
-	  });
-	};
-
-	/**
-	 * RFC3986 に従ったエンコーディングを行う
-	 * @param {string} str
-	 * @returns {string}
-	 */
-	var fixedEncodeURIComponent = function(str) {
-	  return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
-	    return '%' + c.charCodeAt(0).toString(16);
-	  });
-	};
-
-	/**
-	 * 数字を3桁区切りの文字列にして返す
-	 * @param {number} num
-	 * @returns {string}
-	 */
-	var addDigitGroupingSeparator = function(num) {
-
-	  var doForInteger = function(num1) {
-	    return num1.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-	  };
-
-	  var arr = num.toString().split('.');
-	  switch (arr.length) {
-	    case 0:
-	    case 1:
-	      return doForInteger(num);
-	    default:
-	      return doForInteger(parseInt(arr[0])) + '.' + arr[1];
-	  }
-	};
-
-	/**
-	 * 2つの数値を足し算する
-	 *
-	 * @param {number} a
-	 * @param {number} b
-	 * @returns {number}
-	 */
-	var add = function(a, b) {
-
-	  // The function to get the length after the decimal point
-	  var getLengthOfDecimal = function(num) {
-	    var str = num + '';
-	    var len = str.length;
-	    var pos = str.lastIndexOf('.');
-	    if (pos === -1) {
-	      return 0;
-	    } else {
-	      return len - (pos + 1);
-	    }
-	  };
-
-	  // 小数点以下桁数が大きい方に合わせて桁を増やす.
-	  var len_dec_a = getLengthOfDecimal(a);
-	  var len_dec_b = getLengthOfDecimal(b);
-	  var a_new, b_new, len_dec;
-	  if (len_dec_a > len_dec_b) {
-	    len_dec = len_dec_a;
-	  } else {
-	    len_dec = len_dec_b;
-	  }
-
-	  // どちらも必ず整数になるはず
-	  a_new = Math.round(a * Math.pow(10, len_dec));
-	  b_new = Math.round(b * Math.pow(10, len_dec));
-
-	  return (a_new + b_new) / Math.pow(10, len_dec);
-	};
-
-	/**
-	 *
-	 * @param {string} query_string - e.g. 'name=foo&hobby=guitar'
-	 * @return {Object}
-	 */
-	var getUrlParams = function(query_string) {
-
-	  var params = {};
-
-	  if (typeof query_string === 'undefined') {
-	    return {};
-	  }
-
-	  query_string.split('&').forEach(function(s) {
-	    var pair = s.split('=');
-	    if (typeof pair[1] === 'undefined') return;
-	    params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
-	  });
-	  return params;
-	};
-
-	/**
-	 * 3つの数値を掛け算する
-	 *
-	 * - 小数点以下0桁とする（切り捨て）.
-	 *
-	 * @param {number} a
-	 * @param {number} b
-	 * @param {number} c
-	 * @returns {number}
-	 */
-	var multiply = function(a, b, c) {
-
-	  // The function to get the length after the decimal point
-	  var getLengthOfDecimal = function(num) {
-	    var str = num + '';
-	    var len = str.length;
-	    var pos = str.lastIndexOf('.');
-	    if (pos === -1) {
-	      return 0;
-	    } else {
-	      return len - (pos + 1);
-	    }
-	  };
-
-	  // Make the 'a' variable integer if it's decimal
-	  var len_dec_a = getLengthOfDecimal(a);
-	  var a_new = a;
-	  if (len_dec_a > 0) {
-	    a_new = a * Math.pow(10, len_dec_a);
-	  }
-
-	  // Make the 'b' variable integer if it's decimal
-	  var len_dec_b = getLengthOfDecimal(b);
-	  var b_new = b;
-	  if (len_dec_b > 0) {
-	    b_new = b * Math.pow(10, len_dec_b);
-	  }
-
-	  // Make the 'c' variable integer if it's decimal
-	  var len_dec_c = getLengthOfDecimal(c);
-	  var c_new = c;
-	  if (len_dec_c > 0) {
-	    c_new = c * Math.pow(10, len_dec_c);
-	  }
-
-	  var d = a_new * b_new * c_new;
-
-	  if (len_dec_a > 0 || len_dec_b > 0 || len_dec_c > 0) {
-	    d = Math.floor(d / Math.pow(10, len_dec_a + len_dec_b + len_dec_c));
-	  }
-
-	  return d;
-	};
-
-	/**
-	 * 配列かどうかを返す。
-	 * @param something
-	 * @returns {boolean}
-	 */
-	var isArray = function (something) {
-
-	  // ----- polyfil する場合 -----
-	  // if(!Array.isArray) {
-	  //   Array.isArray = function (vArg) {
-	  //     return Object.prototype.toString.call(vArg) === "[object Array]";
-	  //   };
-	  // }
-	  // ---------------------------
-
-	  return Object.prototype.toString.call(something) === '[object Array]';
-
-	};
-
-	/**
-	 * クライアントが日本語かどうかを返す。
-	 * @returns {boolean}
-	 */
-	var isLangJa = function(lang) {
-	  if (typeof lang === 'undefined') {
-	    lang = window.navigator.userLanguage || window.navigator.language || window.navigator.browserLanguage;
-	  }
-	  if (typeof lang === 'undefined') {
-	    return true;
-	  }
-	  return lang.substr(0, 2) === 'ja';
-	};
-
-
-	module.exports = {
-	  waitOnload: waitOnload,
-	  fixedEncodeURIComponent: fixedEncodeURIComponent,
-	  addDigitGroupingSeparator: addDigitGroupingSeparator,
-	  add: add,
-	  getUrlParams: getUrlParams,
-	  multiply: multiply,
-	  isArray: isArray,
-	  isLangJa: isLangJa
-	};
-
 
 
 /***/ }
