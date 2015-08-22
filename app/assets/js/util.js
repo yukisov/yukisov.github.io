@@ -2,8 +2,8 @@
  * @returns {Promise}
  */
 export function waitOnload() {
-  return new Promise(function(resolve/*, reject*/) {
-    $(function() {
+  return new Promise((resolve/*, reject*/) => {
+    $(() => {
       resolve(true);
     });
   });
@@ -15,7 +15,7 @@ export function waitOnload() {
  * @returns {string}
  */
 export function fixedEncodeURIComponent(str) {
-  return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
+  return encodeURIComponent(str).replace(/[!'()*]/g, (c) => {
     return '%' + c.charCodeAt(0).toString(16);
   });
 }
@@ -27,7 +27,7 @@ export function fixedEncodeURIComponent(str) {
  */
 export function addDigitGroupingSeparator(num) {
 
-  var doForInteger = function(num1) {
+  var doForInteger = (num1) => {
     return num1.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
   };
 
@@ -51,7 +51,7 @@ export function addDigitGroupingSeparator(num) {
 export function add(a, b) {
 
   // The function to get the length after the decimal point
-  var getLengthOfDecimal = function(num) {
+  var getLengthOfDecimal = (num) => {
     var str = num + '';
     var len = str.length;
     var pos = str.lastIndexOf('.');
@@ -113,7 +113,7 @@ export function getUrlParams(query_string) {
 export function multiply(a, b, c) {
 
   // The function to get the length after the decimal point
-  var getLengthOfDecimal = function(num) {
+  var getLengthOfDecimal = (num) => {
     var str = num + '';
     var len = str.length;
     var pos = str.lastIndexOf('.');
@@ -178,10 +178,10 @@ export function isArray(something) {
  * @returns {boolean}
  */
 export function isLangJa(lang) {
-  if (typeof lang === 'undefined') {
+  if (lang === undefined) {
     lang = window.navigator.userLanguage || window.navigator.language || window.navigator.browserLanguage;
   }
-  if (typeof lang === 'undefined') {
+  if (lang === undefined) {
     return true;
   }
   return lang.substr(0, 2) === 'ja';

@@ -1290,10 +1290,10 @@
 	 */
 
 	function isLangJa(lang) {
-	  if (typeof lang === 'undefined') {
+	  if (lang === undefined) {
 	    lang = window.navigator.userLanguage || window.navigator.language || window.navigator.browserLanguage;
 	  }
-	  if (typeof lang === 'undefined') {
+	  if (lang === undefined) {
 	    return true;
 	  }
 	  return lang.substr(0, 2) === 'ja';

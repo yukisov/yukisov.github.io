@@ -9,7 +9,7 @@ const API_KEY = 'JGLSPSKTo83V3c0y2Rd0EpJuqnp0seLnQkwNekyC';
  */
 export function getApodData(lat, lon) {
 
-  return new Promise (function(resolve, reject) {
+  return new Promise ((resolve, reject) => {
 
     if (isNaN(lat) || isNaN(lon)) {
       reject(new Error('Params type error'));
@@ -22,7 +22,7 @@ export function getApodData(lat, lon) {
     $.ajax({
       url: url
     })
-      .done(function(data, textStatus, jqXHR) {
+      .done((data, textStatus, jqXHR) => {
         if (typeof console === 'object') console.info(data);
 
         // data:
@@ -33,7 +33,7 @@ export function getApodData(lat, lon) {
         resolve(data);
 
       })
-      .fail(function(jqXHR, textStatus, errorThrown) {
+      .fail((jqXHR, textStatus, errorThrown) => {
 
         reject(new Error('Ajax Error'));
 
