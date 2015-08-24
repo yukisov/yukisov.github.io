@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import * as utilModule from './util';
 
 /**
@@ -6,7 +7,7 @@ import * as utilModule from './util';
 function selectPageByLang() {
 
   let params = utilModule.getUrlParams(location.search.substring(1)),
-      lang, is_lang_ja;
+      is_lang_ja;
 
   if ('lang' in params && params.lang !== '') {
     is_lang_ja = utilModule.isLangJa(params.lang);
