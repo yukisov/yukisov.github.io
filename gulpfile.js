@@ -1,11 +1,12 @@
-var gulp = require('gulp')
-  , plugins = require('gulp-load-plugins')({
+var gulp = require('gulp'),
+    _ = require('underscore'),
+    plugins = require('gulp-load-plugins')({
       rename: {
         'gulp-minify-css': 'minifyCss'
       }
-  })
-  , webpack = require('webpack-stream')
-  , webpackConf = require('./webpack.config.js')
+    }),
+    webpack = require('webpack-stream'),
+    webpackConf = require('./webpack.config.js')
 ;
 
 // ------------------
@@ -53,27 +54,29 @@ gulp.task('cssbuild', function() {
 gulp.task('jsbuild', function() {
 
   gulp.src(paths.assets.js + 'app.js')
-    .pipe(plugins.eslint())
-    .pipe(webpack(webpackConf))
+    .pipe(webpack(_.extend(webpackConf, {
+      output: {
+        filename: 'app.js'
+      }
+    })))
     //.pipe(addsrc.prepend([
     //  paths.assets.vendor + 'pace/pace.min.js'
     //]))
-    .pipe(plugins.concat('app.js'))
     .pipe(gulp.dest(paths.js))
     // minify
     .pipe(plugins.rename('app.min.js'))
     // 'some': Preserve comments that start with a bang (!) or include a Closure Compiler directive (@preserve, @license, @cc_on)
     .pipe(plugins.uglify({preserveComments:'some'}))
     .pipe(gulp.dest(paths.js))
-
+  ;
 });
 
 // --------
 //  Watch
 // --------
 gulp.task('watch', function() {
-  plugins.watch([paths.assets.less + '**/*.less', paths.assets.less + '**/*.css'], ['cssbuild']);
-  plugins.watch([paths.assets.js + '**/*.js'], ['jsbuild']);
+  gulp.watch([paths.assets.less + '**/*.less', paths.assets.less + '**/*.css'], ['cssbuild']);
+  gulp.watch([paths.assets.js + '**/*.js'], ['jsbuild']);
 });
 
 gulp.task('default', ['watch']);
