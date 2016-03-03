@@ -18,8 +18,6 @@ About me
 作ったもの
 ----
 
-- [Secure Code Tips](http://code4sec.com)
-    - セキュリティを考慮したコーディング方法をまとめるサイト
 - [PHP Client API for OWASP ZAP - zaproxy/php-owasp-zap-v2](https://packagist.org/packages/zaproxy/php-owasp-zap-v2)
     - [OWASP ZAP](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project) の PHP用API
 - [クローラ耐性診断ツール - web-sindan-crawler](https://github.com/yukisov/web-sindan-crawler)
@@ -28,15 +26,15 @@ About me
 - [three.jsを使った月の満ち欠けのシミュレーション](http://misc.pupha.net/moon_phases/)
 - [NASA Open APIs の実験](/ex001.html)
 
+
 書いたもの
 ----
 
+- [PHPのセキュリティ対策](http://www.pupha.net/archives/3367/)
+- [Laravel 5 でのセキュリティ対策 (PHP)](http://www.pupha.net/archives/3350/)
+- [JavaScript (とHTML5)のセキュリティ対策](http://www.pupha.net/archives/3361/)
 - [OWASP ZAP について書いた記事](http://www.pupha.net/owasp-zap/)
 - [OWASP BWA について書いた記事](http://www.pupha.net/owasp-bwa/)
-- [Secure Code Tips](http://code4sec.com) に書いたもの
-   - [PHPのセキュリティ対策](http://code4sec.com/yukisov/item/8aCjqsTvj7eYaQElWre4)
-   - [Laravel 5 でのセキュリティ対策 (PHP)](http://code4sec.com/yukisov/item/DLXD7iGgNYMBuNsSbVyg)
-   - [JavaScript (とHTML5)のセキュリティ対策](http://code4sec.com/yukisov/item/2ITFUFjeaGNb4aUGloMk)
 
 
 ブログ
