@@ -15,7 +15,7 @@ jekyll コマンド
 ウェブサーバ起動
 
 ```
-jekyll --server
+jekyll server
 ```
 
 ウェブサーバ起動（自動ビルドつき）
