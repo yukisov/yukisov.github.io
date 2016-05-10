@@ -43,10 +43,10 @@ About me
 - [yukisovのメモ帳](http://www.pupha.net/)
 
 
-Location
+住んでる所
 ----
 
-- Nagoya, Japan
+- 名古屋
 
 
 連絡先
