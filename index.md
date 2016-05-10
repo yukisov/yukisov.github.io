@@ -71,8 +71,6 @@ About me
 Pieces
 ----
 
-- [Secure Code Tips](http://code4sec.com)
-    - Security Coding
 - [PHP Client API for OWASP ZAP - zaproxy/php-owasp-zap-v2](https://packagist.org/packages/zaproxy/php-owasp-zap-v2)
     - [OWASP ZAP](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project) の PHP用API
 - [クローラ耐性診断ツール - web-sindan-crawler](https://github.com/yukisov/web-sindan-crawler)
