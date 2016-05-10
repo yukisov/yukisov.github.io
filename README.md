@@ -2,7 +2,7 @@ Web site resources for yukisov.github.io
 =====
 
 How to Update articles
------
+----------------------
 
 1. Edit some files
 2. $ jekyll serve
@@ -10,7 +10,7 @@ How to Update articles
     - Run Web Server on local
 
 jekyll コマンド
-----
+---------------
 
 ウェブサーバ起動
 
@@ -29,4 +29,10 @@ jekyll serve --watch
 ```
 jekyll build
 ```
+
+Changelog
+---------
+
+- 2016-05-10
+  - JS, CSSの生成ツールは GulpをやめてWebpackを使うようにした。
 
