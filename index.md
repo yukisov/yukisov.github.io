@@ -91,7 +91,7 @@ Writing
 Blog
 ----
 
-- [Web Application Security Memo](http://www.pupha.net/)
+- [yukisovのメモ帳](http://www.pupha.net/)
 
 
 Location
