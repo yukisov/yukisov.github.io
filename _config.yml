@@ -1,4 +1,4 @@
-exclude: ['app', 'vendor', 'Gemfile', 'Gemfile.lock',
+exclude: ['vendor', 'Gemfile', 'Gemfile.lock',
           'material', 'node_modules', 'package.json',
           'Gruntfile.js', 'gulpfile.js', 'README.md',
           'assets/js/app.js.map']

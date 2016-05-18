@@ -1,7 +1,7 @@
 module.exports = {
   // configuration
   entry: {
-    app: "./app/assets/js/app.js"
+    app: "./_app/assets/js/app.js"
   },
   output: {
     path: "./assets/js/",
