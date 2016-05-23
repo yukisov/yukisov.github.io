@@ -30,9 +30,9 @@ About me
 書いたもの
 ----
 
-- [PHPのセキュリティ対策](http://www.pupha.net/archives/3367/)
-- [Laravel 5 でのセキュリティ対策 (PHP)](http://www.pupha.net/archives/3350/)
-- [JavaScript (とHTML5)のセキュリティ対策](http://www.pupha.net/archives/3361/)
+- [PHPのセキュリティ対策](http://laboradian.com/security/web-tech/php)
+- [Laravel 5 でのセキュリティ対策 (PHP)](http://laboradian.com/security/web-tech/laravel5)
+- [JavaScript (とHTML5)のセキュリティ対策](http://laboradian.com/security/web-tech/html5-js)
 - [OWASP ZAP について書いた記事](http://www.pupha.net/owasp-zap/)
 - [OWASP BWA について書いた記事](http://www.pupha.net/owasp-bwa/)
 
