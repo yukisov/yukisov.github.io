@@ -14,27 +14,17 @@ About me
 
 - Webアプリケーションエンジニア
 
+<img src="http://www.gravatar.com/avatar/75d298fa13be4443f22a5765005f06ba.png" style="width:80px"
+     style="margin-left:30px;">
 
-作ったもの
+
+実験
 ----
 
-- [PHP Client API for OWASP ZAP - zaproxy/php-owasp-zap-v2](https://packagist.org/packages/zaproxy/php-owasp-zap-v2)
-    - [OWASP ZAP](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project) の PHP用API
-- [クローラ耐性診断ツール - web-sindan-crawler](https://github.com/yukisov/web-sindan-crawler)
 - [選挙：出口調査から得票率の信頼区間を算出する](http://misc.pupha.net/confidence_interval.html)
 - [テストの得点と偏差値の関係を視覚的に理解する](http://misc.pupha.net/deviation_simulation/)
 - [three.jsを使った月の満ち欠けのシミュレーション](http://misc.pupha.net/moon_phases/)
 - [NASA Open APIs の実験](/ex001.html)
-
-
-書いたもの
-----
-
-- [PHPのセキュリティ対策](http://laboradian.com/security/web-tech/php)
-- [Laravel 5 でのセキュリティ対策 (PHP)](http://laboradian.com/security/web-tech/laravel5)
-- [JavaScript (とHTML5)のセキュリティ対策](http://laboradian.com/security/web-tech/html5-js)
-- [OWASP ZAP について書いた記事](http://www.pupha.net/owasp-zap/)
-- [OWASP BWA について書いた記事](http://www.pupha.net/owasp-bwa/)
 
 
 ブログ
@@ -71,19 +61,9 @@ About me
 Pieces
 ----
 
-- [PHP Client API for OWASP ZAP - zaproxy/php-owasp-zap-v2](https://packagist.org/packages/zaproxy/php-owasp-zap-v2)
-    - [OWASP ZAP](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project) の PHP用API
-- [クローラ耐性診断ツール - web-sindan-crawler](https://github.com/yukisov/web-sindan-crawler)
 - [選挙：出口調査から得票率の信頼区間を算出する](http://misc.pupha.net/confidence_interval.html)
 - [テストの得点と偏差値の関係を視覚的に理解する](http://misc.pupha.net/deviation_simulation/)
 - [three.jsを使った月の満ち欠けのシミュレーション](http://misc.pupha.net/moon_phases/)
-
-
-Writing
-----
-
-- [About OWASP ZAP](http://www.pupha.net/owasp-zap/)
-- [About OWASP BWA](http://www.pupha.net/owasp-bwa/)
 
 
 Blog
