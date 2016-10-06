@@ -23,19 +23,19 @@ jekyll コマンド
 ウェブサーバ起動
 
 ```
-jekyll server
+bundle exec jekyll server
 ```
 
 ウェブサーバ起動（自動ビルドつき）
 
 ```
-jekyll serve --watch
+bundle exec jekyll server --watch
 ```
 
 各HTML(or Markdown)ファイルを_siteフォルダに反映させる
 
 ```
-jekyll build
+bundle exec jekyll build
 ```
 
 Changelog
