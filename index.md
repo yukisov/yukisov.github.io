@@ -25,7 +25,7 @@ About me
 - [テストの得点と偏差値の関係を視覚的に理解する](http://misc.pupha.net/deviation_simulation/)
 - [three.jsを使った月の満ち欠けのシミュレーション](http://misc.pupha.net/moon_phases/)
 - [NASA Open APIs の実験](/ex001.html)
-- [ブラウザからリバーシ大戦の棋譜を抽出する](http://misc.pupha.net/reversi-taisen-kifu-reader//)
+- [ブラウザからリバーシ大戦の棋譜を抽出する](http://misc.pupha.net/reversi-taisen-kifu-reader/)
 
 
 ブログ
