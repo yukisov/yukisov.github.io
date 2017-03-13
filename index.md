@@ -9,6 +9,8 @@ Yuki.S
 
 <div id="page-ja" class="index" data-lang="jp" markdown="1">
 
+<!--
+
 About me
 ----
 
@@ -46,12 +48,13 @@ About me
 -  <a href="https://github.com/yukisov" target="_blank"><i class="fa fa-github"></i> GitHub</a><br/>
 -  <a href="mailto:yukisov@gmail.com"><i class="fa fa-envelope"></i> yukisov@gmail.com</a>
 
-
+-->
 </div>
 
 
 <div id="page-en" class="index" markdown="1">
 
+<!--
 About me
 ----
 
@@ -64,7 +67,6 @@ Pieces
 - [選挙：出口調査から得票率の信頼区間を算出する](http://misc.pupha.net/confidence_interval.html)
 - [テストの得点と偏差値の関係を視覚的に理解する](http://misc.pupha.net/deviation_simulation/)
 - [three.jsを使った月の満ち欠けのシミュレーション](http://misc.pupha.net/moon_phases/)
-
 
 Blog
 ----
@@ -85,6 +87,7 @@ Contact
 -  <a href="https://github.com/yukisov" target="_blank"><i class="fa fa-github"></i> GitHub</a><br/>
 -  <a href="mailto:yukisov@gmail.com"><i class="fa fa-envelope"></i> yukisov@gmail.com</a>
 
+-->
 </div>
 
 
