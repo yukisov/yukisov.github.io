@@ -1,10 +1,10 @@
 ---
-title: Yuki.S
+title: .
 layout: default
 ---
 
 
-Yuki.S
+.
 ====
 
 <div id="page-ja" class="index" data-lang="jp" markdown="1">

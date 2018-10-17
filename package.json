@@ -22,20 +22,20 @@
     "bootstrap": "^3.3.5",
     "css-loader": "^0.23.1",
     "eslint": "^1.2.1",
-    "eslint-loader": "^1.0.0",
+    "eslint-loader": "^1.9.0",
     "file-loader": "^0.8.5",
     "font-awesome": "^4.4.0",
-    "less": "^2.7.1",
+    "less": "^2.7.3",
     "less-loader": "^2.2.3",
     "style-loader": "^0.13.1",
-    "url-loader": "^0.5.7",
-    "webpack": "^1.11.0",
+    "url-loader": "^0.5.9",
+    "webpack": "^1.15.0",
     "webpack-stream": "^2.1.0"
   },
   "dependencies": {
     "jquery": "^2.1.4",
-    "page": "^1.6.3",
-    "promise": "^7.0.4",
-    "underscore": "^1.8.3"
+    "page": "^1.10.2",
+    "promise": "^7.3.1",
+    "underscore": "^1.9.1"
   }
 }

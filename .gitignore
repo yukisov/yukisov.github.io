@@ -1,6 +1,7 @@
 .DS_Store
 .idea
 Gemfile.lock
+Thumbs.db
 .bundle
 vendor/
 _drafts/
