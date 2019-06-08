@@ -41,6 +41,10 @@ bundle exec jekyll build
 Changelog
 ---------
 
+- 2019-06
+  - 現時点でサイトには何も表示していない。
+  - 利用ツールも一旦白紙に戻す。
+
 - 2016-05-10
   - JS, CSSの生成ツールは GulpをやめてWebpackを使うようにした。
 
